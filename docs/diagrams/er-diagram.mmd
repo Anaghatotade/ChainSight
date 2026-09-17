@@ -1,0 +1,105 @@
+erDiagram
+    SUPPLIERS ||--o{ PRODUCTS : supplies
+    SUPPLIERS ||--o{ PURCHASE_ORDERS : receives
+    SUPPLIERS ||--o{ QUALITY_RECORDS : "inspected for"
+    WAREHOUSES ||--o{ INVENTORY_SNAPSHOTS : stores
+    WAREHOUSES ||--o{ DEMAND_HISTORY : fulfills
+    WAREHOUSES ||--o{ PURCHASE_ORDERS : "delivered to"
+    PRODUCTS ||--o{ INVENTORY_SNAPSHOTS : tracked_in
+    PRODUCTS ||--o{ DEMAND_HISTORY : demanded_as
+    PRODUCTS ||--o{ PURCHASE_ORDER_ITEMS : ordered_as
+    PRODUCTS ||--o{ CUSTOMER_ORDERS : sold_as
+    PRODUCTS ||--o{ STOCKOUT_RISK_SCORES : scored_as
+    PRODUCTS ||--o{ DEMAND_FORECASTS : forecast_for
+    PURCHASE_ORDERS ||--o{ PURCHASE_ORDER_ITEMS : contains
+    PURCHASE_ORDERS ||--o{ SHIPMENTS : ships_via
+
+    SUPPLIERS {
+        int id PK
+        string supplier_code
+        string name
+        string region
+        string risk_tier
+        numeric on_time_rate
+        numeric cost_index
+    }
+    PRODUCTS {
+        int id PK
+        string sku
+        string name
+        int primary_supplier_id FK
+        string abc_class
+        int safety_stock_units
+        int reorder_point_units
+    }
+    WAREHOUSES {
+        int id PK
+        string warehouse_code
+        string region
+        int capacity_units
+    }
+    INVENTORY_SNAPSHOTS {
+        int id PK
+        int product_id FK
+        int warehouse_id FK
+        date snapshot_date
+        int on_hand_units
+        boolean stockout_flag
+    }
+    DEMAND_HISTORY {
+        int id PK
+        int product_id FK
+        int warehouse_id FK
+        date demand_date
+        int units_demanded
+        int units_fulfilled
+    }
+    PURCHASE_ORDERS {
+        int id PK
+        string po_number
+        int supplier_id FK
+        int warehouse_id FK
+        date promised_date
+        date actual_delivery_date
+        string status
+    }
+    PURCHASE_ORDER_ITEMS {
+        int id PK
+        int purchase_order_id FK
+        int product_id FK
+        int quantity
+        numeric unit_cost
+    }
+    SHIPMENTS {
+        int id PK
+        int purchase_order_id FK
+        string carrier
+        string status
+        int delay_days
+    }
+    QUALITY_RECORDS {
+        int id PK
+        int supplier_id FK
+        int product_id FK
+        numeric defect_rate
+    }
+    CUSTOMER_ORDERS {
+        int id PK
+        int product_id FK
+        int warehouse_id FK
+        boolean on_time
+        boolean in_full
+    }
+    STOCKOUT_RISK_SCORES {
+        int id PK
+        int product_id FK
+        numeric risk_probability
+        string risk_level
+        json explanation_json
+    }
+    DEMAND_FORECASTS {
+        int id PK
+        int product_id FK
+        date forecast_date
+        numeric forecast_units
+    }

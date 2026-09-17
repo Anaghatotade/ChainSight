@@ -1,0 +1,36 @@
+graph TB
+    subgraph Client["Browser"]
+        UI[Next.js 14 + TypeScript<br/>Recharts, Tailwind CSS]
+    end
+
+    subgraph Backend["FastAPI Backend"]
+        API[REST API Layer<br/>JWT Auth, Pydantic Validation]
+        SVC[Services Layer<br/>Supplier Scoring, Inventory Analysis,<br/>What-If Simulator, Recommendations]
+        ML[ML Layer<br/>RandomForest Forecasting<br/>IsolationForest Anomalies<br/>RandomForest Risk Classifier]
+        ETL[ETL Layer<br/>Synthetic Data Simulation<br/>Discrete-Event Generator]
+    end
+
+    subgraph Data["PostgreSQL"]
+        CORE[(Core Tables<br/>suppliers, products,<br/>warehouses)]
+        FACT[(Fact Tables<br/>inventory_snapshots,<br/>demand_history, purchase_orders)]
+        MLOUT[(ML Output Tables<br/>demand_forecasts, anomalies,<br/>stockout_risk_scores, recommendations)]
+    end
+
+    UI -->|HTTPS / JWT Bearer Token| API
+    API --> SVC
+    API --> MLOUT
+    SVC --> FACT
+    SVC --> CORE
+    ML -->|writes predictions| MLOUT
+    ML -->|reads training data| FACT
+    ETL -->|seeds| CORE
+    ETL -->|seeds| FACT
+
+    style UI fill:#2456f5,color:#fff
+    style API fill:#1a3fd1,color:#fff
+    style SVC fill:#1a3fd1,color:#fff
+    style ML fill:#7c3aed,color:#fff
+    style ETL fill:#7c3aed,color:#fff
+    style CORE fill:#0f766e,color:#fff
+    style FACT fill:#0f766e,color:#fff
+    style MLOUT fill:#0f766e,color:#fff

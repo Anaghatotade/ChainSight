@@ -1,5 +1,7 @@
 # ChainSight — Supply Chain Intelligence & Decision Support Platform
 
+![CI](https://github.com/Anaghatotade/ChainSight/actions/workflows/ci.yml/badge.svg)
+
 A full-stack, production-style **Supply Chain Analytics + ML Decision Support** platform.
 Built to demonstrate end-to-end system design across frontend engineering, backend/API
 design, relational database engineering, ETL, statistics, machine learning, and BI —
@@ -9,6 +11,23 @@ suitable for both SDE and Data/Business Analyst portfolios.
 > Scikit-learn · Docker / Docker Compose
 
 ---
+
+## Screenshots
+
+<!--
+  Add your own captures to docs/screenshots/ using the exact filenames below —
+  see docs/screenshots/README.md for a step-by-step guide. Until then, these
+  will show as broken image links, which is expected.
+-->
+
+| | |
+|---|---|
+| **Dashboard** ![Dashboard](docs/screenshots/dashboard.png) | **Supplier Scoring** ![Suppliers](docs/screenshots/suppliers.png) |
+| **Inventory Health** ![Inventory](docs/screenshots/inventory.png) | **Demand Forecasting** ![Forecasting](docs/screenshots/forecasting.png) |
+| **Stockout Risk (with explanations)** ![Risk](docs/screenshots/risk.png) | **What-If Simulator** ![Simulator](docs/screenshots/simulator.png) |
+
+---
+
 
 ## 1. What this platform does
 
@@ -32,13 +51,47 @@ buttons.
 
 ## 2. Architecture
 
+```mermaid
+graph TB
+    subgraph Client["Browser"]
+        UI[Next.js 14 + TypeScript<br/>Recharts, Tailwind CSS]
+    end
+
+    subgraph Backend["FastAPI Backend"]
+        API[REST API Layer<br/>JWT Auth, Pydantic Validation]
+        SVC[Services Layer<br/>Supplier Scoring, Inventory Analysis,<br/>What-If Simulator, Recommendations]
+        ML[ML Layer<br/>RandomForest Forecasting<br/>IsolationForest Anomalies<br/>RandomForest Risk Classifier]
+        ETL[ETL Layer<br/>Synthetic Data Simulation<br/>Discrete-Event Generator]
+    end
+
+    subgraph Data["PostgreSQL"]
+        CORE[(Core Tables<br/>suppliers, products,<br/>warehouses)]
+        FACT[(Fact Tables<br/>inventory_snapshots,<br/>demand_history, purchase_orders)]
+        MLOUT[(ML Output Tables<br/>demand_forecasts, anomalies,<br/>stockout_risk_scores, recommendations)]
+    end
+
+    UI -->|HTTPS / JWT Bearer Token| API
+    API --> SVC
+    API --> MLOUT
+    SVC --> FACT
+    SVC --> CORE
+    ML -->|writes predictions| MLOUT
+    ML -->|reads training data| FACT
+    ETL -->|seeds| CORE
+    ETL -->|seeds| FACT
+
+    style UI fill:#2456f5,color:#fff
+    style API fill:#1a3fd1,color:#fff
+    style SVC fill:#1a3fd1,color:#fff
+    style ML fill:#7c3aed,color:#fff
+    style ETL fill:#7c3aed,color:#fff
+    style CORE fill:#0f766e,color:#fff
+    style FACT fill:#0f766e,color:#fff
+    style MLOUT fill:#0f766e,color:#fff
 ```
-┌─────────────────────┐        ┌──────────────────────────┐        ┌─────────────────┐
-│   Next.js Frontend   │  HTTP  │       FastAPI Backend      │  SQL   │   PostgreSQL     │
-│  (TypeScript, React) │◄──────►│  Auth · REST API · ML/ETL  │◄──────►│  15+ tables,     │
-│  Recharts dashboards │  JWT   │  Pandas · Scikit-learn     │        │  indexes, views  │
-└─────────────────────┘        └──────────────────────────┘        └─────────────────┘
-```
+
+Full architecture docs, including the database ER diagram and an end-to-end
+data-flow sequence diagram, live in [`docs/architecture.md`](docs/architecture.md).
 
 **Data flow:**
 1. `app/etl/generate_synthetic_data.py` runs a day-by-day discrete-event simulation
@@ -210,6 +263,10 @@ POST   /api/v1/admin/run-pipeline               (admin only) re-run ML pipeline
 
 ```
 supply-chain-platform/
+├── docs/
+│   ├── architecture.md            # architecture, ER, and data-flow diagrams
+│   ├── diagrams/                  # editable .mmd Mermaid diagram sources
+│   └── screenshots/                # UI screenshots (see screenshots/README.md)
 ├── db/
 │   └── init.sql                  # full schema, indexes, views
 ├── backend/
@@ -228,10 +285,11 @@ supply-chain-platform/
 │   └── entrypoint.sh
 ├── frontend/
 │   ├── app/                        # Next.js App Router pages (dashboard, suppliers, inventory, ...)
-│   ├── components/                 # shared UI (AppShell, KPICard, Badge, ...)
+│   ├── components/                 # shared UI (AppShell, KPICard, Badge, Pagination, ...)
 │   ├── contexts/AuthContext.tsx
-│   ├── lib/api.ts                  # typed API client
+│   ├── lib/                        # typed API client, CSV export utility
 │   └── Dockerfile
+├── .github/workflows/ci.yml       # CI: pytest, frontend build, Docker image builds
 ├── docker-compose.yml
 └── .env.example
 ```
@@ -264,3 +322,39 @@ supply-chain-platform/
 ## 10. License
 
 MIT — built as a portfolio/demonstration project.
+
+---
+
+## 11. Changelog / recent improvements
+
+- **CI pipeline** (`.github/workflows/ci.yml`): runs the backend pytest suite,
+  a frontend production build + TypeScript typecheck, and Docker image builds
+  on every push/PR.
+- **Pagination**: `/anomalies`, `/risk/stockout`, `/inventory/health`, and
+  `/recommendations` now return `{items, total, limit, offset}` instead of a
+  flat list, with page controls in the UI, so these stay usable as the
+  dataset grows well beyond the seeded demo size.
+- **CSV export**: an "Export CSV" button on the suppliers, inventory,
+  anomalies, risk, and recommendations pages converts the currently-loaded
+  page of data to a downloadable `.csv` client-side — no backend endpoint
+  needed.
+- **Per-tab session isolation**: auth tokens moved from `localStorage` to
+  `sessionStorage`, so different accounts can be signed in simultaneously in
+  different browser tabs (useful for comparing admin/analyst/viewer views
+  side by side) instead of one shared session across the whole browser.
+- **Registration reliability fix**: `EmailStr` validation previously
+  performed a live DNS/MX-record lookup on every registration by default,
+  making account creation depend on the container's outbound DNS working —
+  a common source of flakiness on Docker Desktop/WSL2. Deliverability
+  checking is now disabled; format validation still applies.
+- **Dependency security patches**: bumped `next` (14.2.5 → 14.2.35) and
+  `axios` (1.7.4 → 1.20.0) to their latest patched releases within the same
+  major version, and forced Next.js's internally-bundled vulnerable `postcss`
+  copy to a safe version via an `overrides` entry in `package.json`. The
+  handful of `next` advisories that remain per `npm audit` are scoped to
+  Server Actions, Middleware, and the Image Optimization API — subsystems
+  this app doesn't use (every page is a client component; no `middleware.ts`,
+  no `next/image`, no Server Actions). Fully clearing those would require a
+  Next.js 15+ major-version migration, tracked as a follow-up rather than
+  bundled into this patch set.
+

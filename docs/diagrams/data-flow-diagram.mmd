@@ -1,0 +1,25 @@
+sequenceDiagram
+    participant ETL as ETL Generator
+    participant DB as PostgreSQL
+    participant Pipeline as ML Pipeline
+    participant API as FastAPI
+    participant UI as Next.js Frontend
+
+    ETL->>DB: Simulate 365 days (demand, inventory, POs, shipments, quality)
+    Note over ETL,DB: Discrete-event simulation:<br/>demand depletes inventory -> triggers reorder<br/>-> supplier reliability determines delay/defects
+
+    Pipeline->>DB: Read historical demand + inventory + supplier data
+    Pipeline->>Pipeline: Train RandomForest (demand forecast)
+    Pipeline->>Pipeline: Run IsolationForest (anomaly detection)
+    Pipeline->>Pipeline: Train RandomForest Classifier (stockout risk)
+    Pipeline->>Pipeline: Generate rule-based recommendations
+    Pipeline->>DB: Persist forecasts, anomalies, risk scores, recommendations
+
+    UI->>API: GET /api/v1/kpis/summary (JWT authenticated)
+    API->>DB: Aggregate SQL query
+    DB-->>API: KPI results
+    API-->>UI: JSON response
+
+    UI->>API: POST /api/v1/simulator/run (what-if scenario)
+    API->>API: Run baseline vs scenario simulation (same seed)
+    API-->>UI: Projected inventory, service level, cost delta
