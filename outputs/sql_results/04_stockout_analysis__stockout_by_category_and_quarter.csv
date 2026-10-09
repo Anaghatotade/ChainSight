@@ -1,0 +1,49 @@
+category,quarter,stockout_rate_pct
+Chemicals,2024-Q1,5.61
+Chemicals,2024-Q2,3.52
+Chemicals,2024-Q3,7.02
+Chemicals,2024-Q4,16.42
+Chemicals,2025-Q1,10.66
+Chemicals,2025-Q2,6.28
+Chemicals,2025-Q3,9.98
+Chemicals,2025-Q4,19.53
+Electronics,2024-Q1,5.66
+Electronics,2024-Q2,17.71
+Electronics,2024-Q3,24.87
+Electronics,2024-Q4,16.22
+Electronics,2025-Q1,8.85
+Electronics,2025-Q2,24.01
+Electronics,2025-Q3,30.23
+Electronics,2025-Q4,22.34
+Machinery Parts,2024-Q1,7.99
+Machinery Parts,2024-Q2,10.23
+Machinery Parts,2024-Q3,5.64
+Machinery Parts,2024-Q4,5.98
+Machinery Parts,2025-Q1,14.1
+Machinery Parts,2025-Q2,20.63
+Machinery Parts,2025-Q3,10.12
+Machinery Parts,2025-Q4,7.95
+Packaging,2024-Q1,7.34
+Packaging,2024-Q2,19.53
+Packaging,2024-Q3,24.26
+Packaging,2024-Q4,18.58
+Packaging,2025-Q1,12.42
+Packaging,2025-Q2,17.58
+Packaging,2025-Q3,26.98
+Packaging,2025-Q4,19.56
+Raw Materials,2024-Q1,6.3
+Raw Materials,2024-Q2,6.27
+Raw Materials,2024-Q3,6.44
+Raw Materials,2024-Q4,10.95
+Raw Materials,2025-Q1,11.9
+Raw Materials,2025-Q2,6.78
+Raw Materials,2025-Q3,8.19
+Raw Materials,2025-Q4,14.83
+Textiles,2024-Q1,6.59
+Textiles,2024-Q2,10.1
+Textiles,2024-Q3,19.94
+Textiles,2024-Q4,22.32
+Textiles,2025-Q1,12.99
+Textiles,2025-Q2,11.37
+Textiles,2025-Q3,22.41
+Textiles,2025-Q4,26.79

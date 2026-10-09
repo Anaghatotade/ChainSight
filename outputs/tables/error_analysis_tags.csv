@@ -1,0 +1,5 @@
+tag,n_errors,share
+outlier_week,7,0.07
+promo_week,26,0.26
+post_promo_week,8,0.08
+seasonal_turn,44,0.44

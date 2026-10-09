@@ -1,0 +1,8 @@
+table,rows_raw,rows_clean,null_cells_raw,null_cells_clean
+warehouses,5,5,0,0
+purchase_orders,7012,6991,219,680
+products,92,90,3,0
+suppliers,24,24,2,0
+demand_daily,131695,131040,394,0
+inventory_daily,131433,131040,395,0
+inventory_policy,180,180,0,0

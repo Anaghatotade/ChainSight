@@ -1,0 +1,3 @@
+,proxy_error,train_error,dev_error,avoidable_bias,variance,diagnosis
+mlp,0.12095438430565181,0.09948649036105212,0.10606602854634811,-0.021467893944599692,0.006579538185295997,The model already beats the baseline proxy on the training weeks and generalises: bias and variance are both small. Remaining error is likely noise or information these features do not contain.
+linear,0.12095438430565181,0.10264500836860296,0.1098403406494638,-0.018309375937048844,0.007195332280860833,The model already beats the baseline proxy on the training weeks and generalises: bias and variance are both small. Remaining error is likely noise or information these features do not contain.

@@ -1,0 +1,29 @@
+table,issue,rule,rows_affected,action
+purchase_orders,Duplicate PO numbers,drop_duplicates on po_number,21,dropped
+purchase_orders,ship_mode in mixed case,lower-case,139,standardised ('AIR' -> 'air')
+purchase_orders,Negative order quantity,take absolute value,13,corrected
+purchase_orders,Delivery date earlier than order date,set date to NULL + flag delivery_date_invalid=1 (excluded from lead-time KPIs),20,flagged
+purchase_orders,Missing freight_cost,median freight-rate of the same ship_mode x PO value,69,imputed
+products,Duplicate SKU rows in master data,drop_duplicates on sku,2,dropped
+products,"Category text inconsistent ('ELECTRONICS ', 'electronics')",strip + title-case,13,standardised
+products,Missing unit_cost,average PO unit cost of that SKU (fallback: category median),3,imputed
+products,unit_price below unit_cost (check only),"report, no change",0,reported
+suppliers,Region text inconsistent ('EUROPE '),strip + title-case,4,standardised
+suppliers,Missing quoted_lead_time_days,average promised lead time on that supplier's POs,2,imputed
+demand_daily,SKU code has lowercase/extra spaces,strip + upper-case,1316,standardised
+demand_daily,Warehouse code has lowercase/extra spaces,strip + upper-case,657,standardised
+demand_daily,Dates in a second format (dd-Mon-yyyy),explicit format parsing,1314,converted to ISO dates
+demand_daily,Unparseable dates,drop row,0,dropped
+demand_daily,Duplicate sku-warehouse-day rows,drop_duplicates on the business key,655,dropped
+demand_daily,Negative demand (sign error),take absolute value,130,corrected
+demand_daily,Missing units_demanded,fill with units_fulfilled (lower bound of true demand),393,imputed
+demand_daily,Demand > 20x the sku-warehouse median (extra-zero typo),replace with sku-warehouse median,51,corrected
+demand_daily,units_fulfilled > units_demanded (impossible),cap fulfilled at demanded,279,corrected
+inventory_daily,SKU / warehouse code formatting,strip + upper-case,0,standardised
+inventory_daily,Dates in a second format,explicit format parsing,0,converted
+inventory_daily,Duplicate sku-warehouse-day rows,drop_duplicates on the business key,393,dropped
+inventory_daily,Negative stock on hand,set to 0 (physical stock cannot be negative),131,corrected
+inventory_daily,Missing on_hand_units,"carry forward last known stock level (stock is a level, not a flow)",393,imputed
+demand_daily,Orphan sku / warehouse codes (integrity check),compare to master tables,0,none found
+inventory_daily,Orphan sku / warehouse codes (integrity check),compare to master tables,0,none found
+products,Orphan supplier codes (integrity check),compare to suppliers,0,none found

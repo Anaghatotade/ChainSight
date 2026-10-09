@@ -1,0 +1,6 @@
+warehouse_code,warehouse_name,region,capacity_units
+WH-EAST,East Distribution Center,North America,500000
+WH-WEST,West Coast Fulfillment Hub,North America,420000
+WH-EU,European Central Warehouse,Europe,380000
+WH-APAC,APAC Regional Hub,East Asia,450000
+WH-SOUTH,Southern Logistics Center,Latin America,260000

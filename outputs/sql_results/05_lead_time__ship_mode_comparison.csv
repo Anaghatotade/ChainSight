@@ -1,0 +1,5 @@
+ship_mode,n_pos,avg_lead_days,on_time_pct,freight_pct_of_value
+air,2140,7.5,54.7,12.04
+road,907,13.3,54.9,6.05
+rail,958,18.0,49.1,5.02
+ocean,2816,25.5,52.7,3.97

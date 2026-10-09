@@ -1,0 +1,3 @@
+policy_status,n_sku_warehouses,recent_stockout_rate_pct
+ROP below recent lead-time demand,64,31.28
+ROP covers lead-time demand,116,10.91

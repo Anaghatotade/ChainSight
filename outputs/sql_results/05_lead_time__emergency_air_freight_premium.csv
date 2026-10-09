@@ -1,0 +1,3 @@
+freight_type,n_pos,freight_cost,freight_pct_of_value
+air,2169,1165873.0,12.04
+non-air,4822,1044009.0,4.49

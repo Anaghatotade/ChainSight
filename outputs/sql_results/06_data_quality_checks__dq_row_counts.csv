@@ -1,0 +1,6 @@
+table_name,n_rows
+demand_daily,131040
+inventory_daily,131040
+purchase_orders,6991
+products,90
+suppliers,24

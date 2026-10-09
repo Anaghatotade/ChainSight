@@ -1,0 +1,3 @@
+day_type,sku_warehouse_days,stockout_rate_pct,fill_rate_pct
+normal day,124065,12.87,85.59
+promo day,6975,15.38,85.35

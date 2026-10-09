@@ -1,0 +1,5 @@
+supplier_region,n_pos,avg_lead_days,avg_delay_days
+East Asia,2592,20.2,0.46
+South Asia,1809,19.3,0.53
+Latin America,1481,18.0,0.46
+North America,939,3.6,0.55

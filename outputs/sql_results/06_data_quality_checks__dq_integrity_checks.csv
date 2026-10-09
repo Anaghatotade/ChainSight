@@ -1,0 +1,7 @@
+check_name,issues
+demand rows without a product (LEFT JOIN orphan),0
+POs without a supplier,0
+fulfilled > demanded,0
+negative on-hand stock,0
+delivery before order date,0
+demand SKU-warehouse-days missing vs inventory table,0

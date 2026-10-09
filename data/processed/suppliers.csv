@@ -1,0 +1,25 @@
+supplier_code,supplier_name,country,region,category,quoted_lead_time_days
+SUP-001,Apex Industrial Electronics,Canada,North America,Electronics,3
+SUP-002,Summit Supply Packaging,Taiwan,East Asia,Packaging,19
+SUP-003,Pioneer Partners Raw,Vietnam,East Asia,Raw Materials,22
+SUP-004,Vertex Systems Textiles,China,East Asia,Textiles,20
+SUP-005,Zenith Components Machinery,Canada,North America,Machinery Parts,5
+SUP-006,Meridian Global Chemicals,India,South Asia,Chemicals,21
+SUP-007,Atlas Trading Electronics,Colombia,Latin America,Electronics,15
+SUP-008,Nova Manufacturing Packaging,India,South Asia,Packaging,17
+SUP-009,Orion Works Raw,Brazil,Latin America,Raw Materials,21
+SUP-010,Titan Logistics Textiles,Brazil,Latin America,Textiles,22
+SUP-011,Crest Dynamics Machinery,Bangladesh,South Asia,Machinery Parts,21
+SUP-012,Horizon Materials Chemicals,South Korea,East Asia,Chemicals,17
+SUP-013,Prime Industrial Electronics,Colombia,Latin America,Electronics,16
+SUP-014,Vanguard Supply Packaging,India,South Asia,Packaging,16
+SUP-015,Cobalt Partners Raw,Colombia,Latin America,Raw Materials,12
+SUP-016,Ember Systems Textiles,South Korea,East Asia,Textiles,16
+SUP-017,Falcon Components Machinery,Taiwan,East Asia,Machinery Parts,15
+SUP-018,Granite Global Chemicals,India,South Asia,Chemicals,16
+SUP-019,Harbor Trading Electronics,Vietnam,East Asia,Electronics,18
+SUP-020,Ironwood Manufacturing Packaging,Brazil,Latin America,Packaging,11
+SUP-021,Juniper Works Raw,Vietnam,East Asia,Raw Materials,24
+SUP-022,Keystone Logistics Textiles,India,South Asia,Textiles,13
+SUP-023,Lumen Dynamics Machinery,India,South Asia,Machinery Parts,19
+SUP-024,Mosaic Materials Chemicals,South Korea,East Asia,Chemicals,19
