@@ -263,6 +263,3 @@ Setup and run order: **README_SETUP.md**. Interview preparation: **INTERVIEW_NOT
 - **No cost model.** Holding cost, margin and service-level trade-offs are not optimised; recommendations are directional.
 - **Small neural network, small data** (5,760 training rows): results vary by seed (range shown above).
 
-## 8. About the original ChainSight repo
-
-This project restructures the original web-app repo in place: the React/FastAPI/Postgres/Docker layer, risk-scoring ML and anomaly-detection experiments were removed; the simulation logic, KPI definitions, ABC and reorder-point ideas were kept and fixed. The audit (what was reused, removed and why, plus bugs found in the original) is in `docs/AUDIT.md`.
