@@ -1,4 +1,4 @@
-# ChainSight - Inventory & Demand Analytics 
+# ChainSight - Inventory & Demand Analytics (Data Analyst / Business Analyst portfolio project)
 
 > **One line:** a supply-chain business keeps running out of its most valuable products. This project cleans the data, measures service and inventory KPIs, forecasts weekly demand (baselines first, a small neural network only as a challenger) and ends with prioritised actions.
 
