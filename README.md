@@ -312,6 +312,3 @@ _Evidence: measured_
 - **Small neural network, modest data** (1,131,558 training rows): results vary a little by seed (range shown above).
 - **One retailer, 2011-2016, US.** Patterns may not transfer.
 
-## 8. About the original ChainSight repo and the data change
-
-This project restructures the original web-app repo in place: the React/FastAPI/Postgres/Docker layer, risk-scoring ML and anomaly-detection experiments were removed. It first ran on a *synthetic* supply-chain simulation; because synthetic data limits what a reviewer can trust, the whole analysis was re-run on the real M5 data (service-level KPIs that need stock data were dropped rather than invented). The audit and the migration notes are in `docs/AUDIT.md`.
