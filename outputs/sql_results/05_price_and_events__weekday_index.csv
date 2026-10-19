@@ -1,0 +1,8 @@
+weekday,wday,avg_daily_units,weekday_index
+Saturday,1,41520.0,1.21
+Sunday,2,41098.0,1.197
+Monday,3,32853.0,0.957
+Tuesday,4,30369.0,0.885
+Wednesday,5,30010.0,0.874
+Thursday,6,30205.0,0.88
+Friday,7,34226.0,0.997

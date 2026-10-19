@@ -1,0 +1,4 @@
+category,n_item_states,mean_cv,n_stable,n_variable,n_erratic,mean_zero_week_pct
+FOODS,4311,0.651,1308,2609,394,10.57
+HOBBIES,1695,0.655,513,1029,153,9.43
+HOUSEHOLD,3141,0.63,1153,1699,289,10.21

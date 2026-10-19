@@ -1,0 +1,5 @@
+event_type,n_event_days,avg_ratio_vs_same_weekday_neighbours
+National,39,1.04
+Sporting,14,0.996
+Religious,34,0.976
+Cultural,27,0.935

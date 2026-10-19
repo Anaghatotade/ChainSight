@@ -1,0 +1,7 @@
+table_name,n_rows
+dim_item,3049
+dim_store,10
+dim_week,273
+dim_date,1911
+fact_weekly_sales,6566711
+fact_daily_sales,133770

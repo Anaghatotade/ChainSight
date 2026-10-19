@@ -1,0 +1,27 @@
+event,n_occurrences,avg_ratio_vs_same_weekday_neighbours
+LaborDay,5,1.277
+VeteransDay,5,1.082
+PresidentsDay,5,1.079
+MartinLutherKingDay,5,1.068
+NBAFinalsStart,5,1.048
+Cinco De Mayo,4,1.046
+ColumbusDay,5,1.023
+Ramadan starts,5,1.018
+EidAlAdha,4,1.012
+MemorialDay,5,1.003
+StPatricksDay,5,1.002
+IndependenceDay,5,0.99
+SuperBowl,5,0.98
+Chanukah End,4,0.979
+Purim End,5,0.978
+OrthodoxChristmas,5,0.968
+Pesach End,5,0.96
+ValentinesDay,4,0.957
+Eid al-Fitr,5,0.957
+NBAFinalsEnd,4,0.949
+Halloween,4,0.926
+Father's day,3,0.894
+Easter,3,0.85
+Mother's day,4,0.824
+OrthodoxEaster,1,0.816
+Thanksgiving,4,0.742

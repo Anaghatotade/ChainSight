@@ -1,0 +1,7 @@
+primary_cause,n_errors,abs_error_units,under_forecast,share_of_errors,share_of_error_units
+outlier_week,79.0,32172.515974383223,38.0,0.79,0.8189303825194302
+price_cut_week,0.0,0.0,0.0,0.0,0.0
+post_price_cut_week,0.0,0.0,0.0,0.0,0.0
+seasonal_turn,0.0,0.0,0.0,0.0,0.0
+event_week,8.0,2773.767312467303,1.0,0.08,0.07060443541398498
+no_clear_cause,13.0,4339.737431302386,7.0,0.13,0.11046518206658484

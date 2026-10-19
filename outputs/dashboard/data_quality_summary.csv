@@ -1,0 +1,5 @@
+table,rows_raw,cols_raw,rows_clean,note
+sales (item-store x day),30490,1913,30490,"65,695,409 units in the file; 65,596,652 in the 273 full weeks used"
+sell_prices (item-store x week),6841121,4,6566711,rows inside the analysis window = on-sale series-weeks
+calendar,1969,14,1911,days inside the analysis window
+daily store x dept (derived),0,0,133770,aggregate used for weekday / SNAP / events

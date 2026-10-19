@@ -1,0 +1,19 @@
+rule,table,rows_affected,action,detail
+unique series id,sales,0,none needed,
+"hierarchy consistent (item -> dept -> category, store -> state)",sales,0,none needed,
+calendar days match sales columns and are contiguous,calendar,0,none needed,"1913 sales days, calendar has 1969 days (extra days = future, no sales)"
+missing daily sales,sales,0,none needed,
+negative daily sales,sales,0,none needed,
+non-integer unit counts,sales,0,none needed,
+trailing partial week,sales,60980,dropped last days so every week has 7 days,"2 days / 98,757 units dropped"
+duplicate price rows,sell_prices,0,none needed,
+non-positive or missing price,sell_prices,0,none needed,
+price rows outside the sales window,sell_prices,274410,dropped (weeks after the last full sales week),
+price rows for an item-store with no sales row,sell_prices,0,none needed,
+series-weeks with no price listing (item not on sale yet / delisted),sales x prices,1757059,masked as 'not on sale' - excluded from KPIs and forecasting instead of counting as zero demand,21.1% of all series-weeks
+sales recorded in a week with no price,sales x prices,0,none needed,
+delisted series (no price in the last 8 weeks),prices,0,"kept; their off-sale weeks are masked, earlier history stays",
+series that were never on sale in the window,prices,0,none needed,
+week-to-week price change by more than 3x,sell_prices,1119,flagged only (kept),
+weekly units above 10x the series' median selling week,sales,1026,flagged only (kept: real demand peaks such as holidays are exactly what we want to forecast),
+days with two events at once,calendar,5,kept (event_name_1 is used; the second event is rare),

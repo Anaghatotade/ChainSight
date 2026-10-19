@@ -1,0 +1,12 @@
+check_name,issues
+weekly fact: orphan item,0
+weekly fact: orphan store,0
+weekly fact: orphan week,0
+daily fact: orphan date,0
+daily fact: orphan store,0
+negative units,0
+non-positive price,0
+revenue differs from units x price,0
+week index not contiguous,0
+department does not belong to its category,0
+weekly vs daily units differ (total),0

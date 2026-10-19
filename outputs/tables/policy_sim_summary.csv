@@ -1,0 +1,5 @@
+model,model_key,inventory_value_at_95pct_fill
+Exp. smoothing,ses,645586.5075059999
+Naive (last week),naive,751833.5841180197
+Linear regression,linear,612864.8187623104
+MLP (NumPy NN),mlp,557237.8656113533
