@@ -213,9 +213,7 @@ tests/           pytest suite (tiny hand-made M5-style data)        docs/  data 
 
 Setup and run order: **README_SETUP.md**. Interview preparation: **INTERVIEW_NOTES.md**.
 
-## 6. Business recommendations (generated from the findings)
-
-# Business recommendations (generated from the data)
+## 6. Business recommendations 
 
 _Evidence: **measured** = computed from the real M5 data; **assumption-based** = uses an assumed lead time (see config.py)._
 
