@@ -1,4 +1,4 @@
-# ChainSight - Retail Demand & Inventory Analytics on real Walmart data (Data Analyst / Business Analyst portfolio project)
+# ChainSight - Retail Demand & Inventory Analytics  
 
 > **One line:** I took the real Kaggle **M5 (Walmart)** sales data - 3,049 items, 10 stores, 273 weeks - cleaned and validated it, measured demand and revenue KPIs in SQL and pandas, forecast weekly demand (simple baselines first, a small neural network only as a challenger) and ended with prioritised, evidence-labelled recommendations.
 
