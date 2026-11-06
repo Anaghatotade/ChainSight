@@ -7,7 +7,7 @@
 
 ---
 
-## 1. Executive summary (the "so what" first)
+## 1. Summary
 
 | | |
 |---|---|
