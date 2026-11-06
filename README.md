@@ -48,7 +48,7 @@ A regional retailer sells 3,049 items through 10 stores. Management asks:
 | Revenue, units, price, ABC, demand variability, intermittency | **Yes - measured** |
 | Trend, seasonality, weekday, events, SNAP effect, price-cut association | **Yes - measured** (associations, not causal effects) |
 | Forecast accuracy of baselines vs linear vs MLP | **Yes - measured** on a time-based hold-out |
-| Safety stock / reorder point | **Only with an assumed lead time** (`config.py`) - labelled "assumption-based" everywhere |
+| Safety stock / reorder point | **Only with an assumed lead time** (`config.py`)|
 | Fill rate, stock-out rate, turnover, days of inventory, supplier reliability, margin | **No** - M5 has no stock, cost or supplier data |
 
 ## 3. Dataset
