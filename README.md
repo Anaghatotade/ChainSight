@@ -1,6 +1,5 @@
 # ChainSight - Retail Demand & Inventory Analytics  
 
-> **One line:** I took the real Kaggle **M5 (Walmart)** sales data - 3,049 items, 10 stores, 273 weeks - cleaned and validated it, measured demand and revenue KPIs in SQL and pandas, forecast weekly demand (simple baselines first, a small neural network only as a challenger) and ended with prioritised, evidence-labelled recommendations.
 
 **Story:** raw data -> cleaning -> EDA -> KPI analysis -> inventory / demand insights -> forecasting (baselines vs a simple neural network) -> business recommendations.
 
